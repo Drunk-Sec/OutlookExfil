@@ -26,6 +26,7 @@ namespace OutlookExfil
         {
             if (this.Application.ActiveExplorer().Selection.Count == 1)
             {
+                MailItem item = this.Application.ActiveExplorer().Selection[1] as MailItem;
 
                 if (item != null)
                 {

